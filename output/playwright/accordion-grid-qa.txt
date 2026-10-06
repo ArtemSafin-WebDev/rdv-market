@@ -1,0 +1,231 @@
+### Result
+{
+  "close": {
+    "initial": 301,
+    "final": 0,
+    "frames": [
+      {
+        "ms": 14,
+        "height": 301
+      },
+      {
+        "ms": 31,
+        "height": 289.5234375
+      },
+      {
+        "ms": 48,
+        "height": 267.1484375
+      },
+      {
+        "ms": 64,
+        "height": 234.7890625
+      },
+      {
+        "ms": 81,
+        "height": 196.9921875
+      },
+      {
+        "ms": 98,
+        "height": 160.3359375
+      },
+      {
+        "ms": 114,
+        "height": 127.84375
+      },
+      {
+        "ms": 131,
+        "height": 100.359375
+      },
+      {
+        "ms": 148,
+        "height": 77.9453125
+      },
+      {
+        "ms": 164,
+        "height": 59.4765625
+      },
+      {
+        "ms": 181,
+        "height": 44.515625
+      },
+      {
+        "ms": 198,
+        "height": 32.34375
+      },
+      {
+        "ms": 214,
+        "height": 22.625
+      },
+      {
+        "ms": 231,
+        "height": 15.0390625
+      },
+      {
+        "ms": 248,
+        "height": 9.2109375
+      },
+      {
+        "ms": 264,
+        "height": 4.9921875
+      },
+      {
+        "ms": 281,
+        "height": 2.1328125
+      },
+      {
+        "ms": 297,
+        "height": 0.5234375
+      },
+      {
+        "ms": 314,
+        "height": 0
+      },
+      {
+        "ms": 331,
+        "height": 0
+      },
+      {
+        "ms": 348,
+        "height": 0
+      },
+      {
+        "ms": 364,
+        "height": 0
+      },
+      {
+        "ms": 380,
+        "height": 0
+      },
+      {
+        "ms": 397,
+        "height": 0
+      },
+      {
+        "ms": 414,
+        "height": 0
+      },
+      {
+        "ms": 431,
+        "height": 0
+      }
+    ]
+  },
+  "open": {
+    "initial": 0,
+    "final": 249,
+    "frames": [
+      {
+        "ms": 16,
+        "height": 9.5703125
+      },
+      {
+        "ms": 33,
+        "height": 27.9921875
+      },
+      {
+        "ms": 49,
+        "height": 54.9453125
+      },
+      {
+        "ms": 66,
+        "height": 86.21875
+      },
+      {
+        "ms": 83,
+        "height": 116.703125
+      },
+      {
+        "ms": 99,
+        "height": 142.34375
+      },
+      {
+        "ms": 116,
+        "height": 165.96875
+      },
+      {
+        "ms": 133,
+        "height": 184.609375
+      },
+      {
+        "ms": 149,
+        "height": 199.796875
+      },
+      {
+        "ms": 166,
+        "height": 212.234375
+      },
+      {
+        "ms": 182,
+        "height": 221.9140625
+      },
+      {
+        "ms": 199,
+        "height": 230.2734375
+      },
+      {
+        "ms": 215,
+        "height": 236.2890625
+      },
+      {
+        "ms": 233,
+        "height": 241.3671875
+      },
+      {
+        "ms": 249,
+        "height": 244.796875
+      },
+      {
+        "ms": 265,
+        "height": 247.125
+      },
+      {
+        "ms": 283,
+        "height": 248.578125
+      },
+      {
+        "ms": 298,
+        "height": 248.9921875
+      },
+      {
+        "ms": 316,
+        "height": 249
+      },
+      {
+        "ms": 332,
+        "height": 249
+      },
+      {
+        "ms": 349,
+        "height": 249
+      },
+      {
+        "ms": 365,
+        "height": 249
+      },
+      {
+        "ms": 383,
+        "height": 249
+      },
+      {
+        "ms": 399,
+        "height": 249
+      },
+      {
+        "ms": 416,
+        "height": 249
+      },
+      {
+        "ms": 432,
+        "height": 249
+      }
+    ]
+  },
+  "rapidSwitch": "passed",
+  "inertCollapsedContent": "passed"
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => window.__accordionQA');
+```
+
+Desktop resize, rapid switching and reduced motion: passed.

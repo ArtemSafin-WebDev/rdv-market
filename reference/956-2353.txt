@@ -1,0 +1,42 @@
+const assetPathPrefix = "https://www.figma.com/api/mcp/asset/7f5becac-8460-42f9-a63f-85de318485d2";
+const imgImage2112517 = `${assetPathPrefix}/b658e.png`;
+const imgFrame2131328927 = `${assetPathPrefix}/35507.svg`;
+
+export default function Container() {
+  return (
+    <div className="bg-[#f0f5f7] overflow-clip relative rounded-[24px] size-full" data-node-id="956:2353" data-name="Container">
+      <div className="absolute h-[349px] left-[29px] rounded-[16px] top-[26px] w-[620px]" data-node-id="956:2354" data-name="image 2112517">
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[16px] size-full" src={imgImage2112517} />
+      </div>
+      <div className="[word-break:break-word] absolute content-stretch flex flex-col gap-[19px] items-end leading-[0] left-[709px] not-italic text-[#080d26] top-[51px] w-[491px]" data-node-id="956:2355">
+        <div className="font-['Proxima_Nova:Bold'] relative shrink-0 text-[42px] w-full" data-node-id="956:2356">
+          <p className="leading-[52px] mb-0">Посмотрите,</p>
+          <p className="leading-[52px]">как всё устроено</p>
+        </div>
+        <div className="font-['Proxima_Nova:Regular'] relative shrink-0 text-[16px] w-full" data-node-id="956:2357">
+          <p className="leading-[22px] mb-0">Познакомьтесь с возможностями решения и оцените,</p>
+          <p className="leading-[22px]">как оно впишется в ваши процессы</p>
+        </div>
+      </div>
+      <div className="absolute h-[144px] left-[709px] top-[231px] w-[491px]" data-node-id="956:2358">
+        <div className="absolute inset-[0_0_0_-0.19%]">
+          <img alt="" className="block max-w-none size-full" src={imgFrame2131328927} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+These styles are contained in the design: Body/Regular 16: Font(family: "Proxima Nova", style: Regular, size: 16, weight: 400, lineHeight: 22, letterSpacing: 0).
+
+Images and SVGs will be stored as constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These constants will be used in the code as the source for the image, ex: <img src={image} />. Image assets are stored on a remote server for 7 days and can be fetched using the provided URLs until they expire.

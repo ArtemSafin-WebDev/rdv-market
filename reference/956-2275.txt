@@ -1,0 +1,154 @@
+const assetPathPrefix = "https://www.figma.com/api/mcp/asset/2b130954-1ac6-4e9a-be7a-e27c0136385a";
+const img3D = `${assetPathPrefix}/de270.png`;
+const img3DDataMatrix = `${assetPathPrefix}/191ac.png`;
+const img3D1 = `${assetPathPrefix}/9d6ed.png`;
+const imgWildberries = `${assetPathPrefix}/c3820.png`;
+const img = `${assetPathPrefix}/e3bb5.png`;
+const imgOzon = `${assetPathPrefix}/c05e6.png`;
+const img3D2 = `${assetPathPrefix}/0933b.png`;
+const imgEllipse = `${assetPathPrefix}/dbad8.svg`;
+const imgEllipse1 = `${assetPathPrefix}/c7bf9.svg`;
+const imgEllipse2 = `${assetPathPrefix}/cbb18.svg`;
+const imgEllipse3 = `${assetPathPrefix}/66cdf.svg`;
+
+export default function Component() {
+  return (
+    <div className="content-stretch drop-shadow-[0px_0px_11.25px_rgba(2,0,30,0.08)] flex flex-col items-start relative size-full" data-node-id="956:2275" data-name="Ключевые возможности">
+      <div className="content-stretch flex gap-[24px] h-[346px] items-start relative shrink-0 w-full" data-node-id="956:2276" data-name="Cards Row">
+        <div className="bg-white content-stretch flex flex-col h-[332px] items-start overflow-clip relative rounded-[24px] shrink-0 w-[292px]" data-node-id="956:2277" data-name="Feature Card - Отгрузка">
+          <div className="[word-break:break-word] content-stretch flex flex-col gap-[12px] items-start not-italic pl-[26px] pr-[20px] pt-[26px] relative shrink-0 text-[color:var(--black\/black,#080d26)] w-full" data-node-id="956:2278" data-name="Frame">
+            <p className="font-['Proxima_Nova:Bold'] leading-[26px] relative shrink-0 text-[20px] w-full" data-node-id="956:2279">
+              FBS-отгрузки за 12 часов
+            </p>
+            <p className="font-['Proxima_Nova:Regular'] leading-[22px] relative shrink-0 text-[16px] w-full whitespace-pre-wrap" data-node-id="956:2280">
+              {`Инструменты для быстрой обработки и отгрузки 10 000+ `}
+              <br aria-hidden />
+              FBS-заказов каждый день
+            </p>
+          </div>
+          <div className="flex flex-[1_0_0] items-center justify-center min-h-px relative w-full" data-node-id="956:2281">
+            <div className="-scale-y-100 flex-none rotate-180 size-full">
+              <div className="content-stretch flex flex-col items-center justify-end relative size-full" data-name="Illustration Area">
+                <div className="-translate-x-1/2 absolute bottom-[16px] h-[72px] left-1/2 w-[220px]" data-node-id="956:2282" data-name="Ellipse">
+                  <div className="absolute inset-[-77.78%_-25.45%]">
+                    <img alt="" className="block max-w-none size-full" src={imgEllipse} />
+                  </div>
+                </div>
+                <div className="-translate-x-1/2 absolute bottom-[-31px] h-[242px] left-[calc(50%+67.5px)] w-[355px]" data-node-id="956:2283" data-name="3D — Грузовик в стиле методологии">
+                  <img alt="" className="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src={img3D} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white content-stretch flex flex-col h-[332px] items-start overflow-clip relative rounded-[24px] shrink-0 w-[292px]" data-node-id="956:2284" data-name="Feature Card - Честный Знак">
+          <div className="[word-break:break-word] content-stretch flex flex-col gap-[12px] items-start not-italic pl-[26px] pr-[20px] pt-[26px] relative shrink-0 text-[color:var(--black\/black,#080d26)] w-full" data-node-id="956:2285" data-name="Frame">
+            <p className="font-['Proxima_Nova:Bold'] leading-[26px] relative shrink-0 text-[20px] w-full" data-node-id="956:2286">
+              Честный Знак
+            </p>
+            <p className="font-['Proxima_Nova:Regular'] leading-[22px] relative shrink-0 text-[16px] w-full" data-node-id="956:2287">
+              Автоматизация полного цикла работы с маркировкой на маркетплейсах
+            </p>
+          </div>
+          <div className="content-stretch flex flex-[1_0_0] flex-col items-center justify-end min-h-px relative w-full" data-node-id="956:2288" data-name="Illustration Area">
+            <div className="-translate-x-1/2 absolute bottom-[16px] h-[72px] left-1/2 w-[220px]" data-node-id="956:2289" data-name="Ellipse">
+              <div className="absolute inset-[-77.78%_-25.45%]">
+                <img alt="" className="block max-w-none size-full" src={imgEllipse1} />
+              </div>
+            </div>
+            <div className="-translate-x-1/2 absolute bottom-[-65.44px] flex h-[298.445px] items-center justify-center left-[calc(50%+8.6px)] w-[393.201px]" data-node-id="956:2290">
+              <div className="-scale-y-100 flex-none rotate-[-170.96deg]">
+                <div className="h-[245.081px] relative w-[359.17px]" data-name="3D — Корректный Data Matrix и сканер">
+                  <img alt="" className="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src={img3DDataMatrix} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white content-stretch flex flex-col h-[332px] items-start overflow-clip relative rounded-[24px] shrink-0 w-[292px]" data-node-id="956:2291" data-name="Feature Card - Учет продаж">
+          <div className="[word-break:break-word] content-stretch flex flex-col gap-[12px] items-start not-italic pl-[26px] pr-[20px] pt-[26px] relative shrink-0 text-[color:var(--black\/black,#080d26)] w-full" data-node-id="956:2292" data-name="Frame">
+            <p className="font-['Proxima_Nova:Bold'] leading-[26px] relative shrink-0 text-[20px] w-full" data-node-id="956:2293">
+              Корректный учет
+            </p>
+            <div className="font-['Proxima_Nova:Regular'] leading-[0] relative shrink-0 text-[16px] w-full" data-node-id="956:2294">
+              <p className="leading-[22px] mb-0">Достоверные данные для налоговой отчетности</p>
+              <p className="leading-[22px]">за 1 день</p>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-[1_0_0] flex-col items-center justify-end min-h-px relative w-full" data-node-id="956:2295" data-name="Illustration Area">
+            <div className="-translate-x-1/2 absolute bottom-[16px] h-[72px] left-1/2 w-[220px]" data-node-id="956:2296" data-name="Ellipse">
+              <div className="absolute inset-[-77.78%_-25.45%]">
+                <img alt="" className="block max-w-none size-full" src={imgEllipse2} />
+              </div>
+            </div>
+            <div className="-translate-x-1/2 absolute bottom-[-86.81px] flex h-[324.814px] items-center justify-center left-[calc(50%+28.81px)] w-[379.626px]" data-node-id="956:2297">
+              <div className="flex-none rotate-[-7.97deg]">
+                <div className="h-[279.778px] relative w-[344.141px]" data-name="3D — Финансовый документ с маркетплейсами и стеклянной монетой">
+                  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <img alt="" className="absolute h-[99.79%] left-[-0.05%] max-w-none top-0 w-[81.12%]" src={img3D1} />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="absolute flex items-center justify-center left-[112px] size-[29.974px] top-[112.82px]" data-node-id="956:2298">
+              <div className="flex-none rotate-[-13.94deg]">
+                <div className="relative rounded-[12.371px] size-[24.743px]" data-name="Маркетплейс — Wildberries">
+                  <img alt="" className="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[12.371px] size-full" src={imgWildberries} />
+                </div>
+              </div>
+            </div>
+            <div className="absolute flex items-center justify-center left-[140.18px] size-[29.974px] top-[104px]" data-node-id="956:2299">
+              <div className="flex-none rotate-[-13.94deg]">
+                <div className="relative rounded-[12.371px] size-[24.743px]" data-name="Маркетплейс — Мегамаркет">
+                  <img alt="" className="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[12.371px] size-full" src={img} />
+                </div>
+              </div>
+            </div>
+            <div className="absolute flex items-center justify-center left-[168.18px] size-[29.974px] top-[95px]" data-node-id="956:2300">
+              <div className="flex-none rotate-[-13.94deg]">
+                <div className="relative rounded-[12.371px] size-[24.743px]" data-name="Маркетплейс — Ozon">
+                  <img alt="" className="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[12.371px] size-full" src={imgOzon} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white content-stretch flex flex-col h-[332px] items-start overflow-clip relative rounded-[24px] shrink-0 w-[292px]" data-node-id="956:2301" data-name="Feature Card - Аналитика">
+          <div className="[word-break:break-word] content-stretch flex flex-col gap-[12px] items-start not-italic pl-[26px] pr-[20px] pt-[26px] relative shrink-0 text-[color:var(--black\/black,#080d26)] w-full" data-node-id="956:2302" data-name="Frame">
+            <p className="font-['Proxima_Nova:Bold'] leading-[26px] relative shrink-0 text-[20px] w-full" data-node-id="956:2303">
+              Аналитика продаж
+            </p>
+            <p className="font-['Proxima_Nova:Regular'] leading-[22px] relative shrink-0 text-[16px] w-full whitespace-pre-wrap" data-node-id="956:2304">
+              {`Юнит-экономика и P&L `}
+              <br aria-hidden />с данными вашей 1С
+            </p>
+          </div>
+          <div className="content-stretch flex flex-col h-[228px] items-center justify-end relative shrink-0 w-[314.038px]" data-node-id="956:2305" data-name="Illustration Area">
+            <div className="-translate-x-1/2 absolute bottom-[17.21px] h-[77.434px] left-1/2 w-[236.604px]" data-node-id="956:2306" data-name="Ellipse">
+              <div className="absolute inset-[-77.78%_-25.45%]">
+                <img alt="" className="block max-w-none size-full" src={imgEllipse3} />
+              </div>
+            </div>
+            <div className="-translate-x-1/2 absolute bottom-[-7.85px] h-[225.849px] left-[calc(50%+18.6px)] w-[331.245px]" data-node-id="956:2307" data-name="3D — График роста в стиле методологии">
+              <img alt="" className="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src={img3D2} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+These styles are contained in the design: Body/Regular 16: Font(family: "Proxima Nova", style: Regular, size: 16, weight: 400, lineHeight: 22, letterSpacing: 0), Primary/White: #FFFFFF.
+
+Images and SVGs will be stored as constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These constants will be used in the code as the source for the image, ex: <img src={image} />. Image assets are stored on a remote server for 7 days and can be fetched using the provided URLs until they expire.

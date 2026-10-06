@@ -1,0 +1,9 @@
+### Result
+{
+  "posterRatio": true,
+  "posterContained": true
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => window.finalQA');
+```

@@ -1,0 +1,22 @@
+### Result
+{
+  "shellElementsCompared": 333,
+  "isolation": [],
+  "selected": [
+    0,
+    3
+  ],
+  "uniqueIds": true,
+  "videoChecks": [
+    true,
+    true
+  ],
+  "longTextElements": 82,
+  "overflow": [],
+  "absoluteText": [],
+  "sharedWrapper": false
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => (window.bemQA)');
+```

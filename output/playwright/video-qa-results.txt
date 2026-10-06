@@ -1,0 +1,14 @@
+### Result
+{
+  "rutube": "https://rutube.ru/play/embed/6c8477f549fd49c769395bf80a11b106?autoplay=1",
+  "restoredFocus": true,
+  "local": {
+    "readyState": 4,
+    "currentTime": 0.011333,
+    "error": null
+  }
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => window.videoQA');
+```

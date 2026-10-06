@@ -1,0 +1,113 @@
+const assetPathPrefix = "https://www.figma.com/api/mcp/asset/fddbcedf-ae92-47b1-814f-2bfbccd2dcf0";
+const imgVector2 = `${assetPathPrefix}/46593.png`;
+const imgGroup = `${assetPathPrefix}/c48d8.svg`;
+const imgGroup1 = `${assetPathPrefix}/55816.svg`;
+const imgVector = `${assetPathPrefix}/9bfbf.svg`;
+const imgGroup2 = `${assetPathPrefix}/6aa29.svg`;
+const imgVector1 = `${assetPathPrefix}/4ea53.svg`;
+const imgVector3 = `${assetPathPrefix}/c33f5.svg`;
+const imgFrame2131328921 = `${assetPathPrefix}/1ad62.svg`;
+const imgG20 = `${assetPathPrefix}/5a8ae.svg`;
+const imgG21 = `${assetPathPrefix}/f10f6.svg`;
+const imgGroup2131327607 = `${assetPathPrefix}/49826.svg`;
+const imgGroup2131327608 = `${assetPathPrefix}/86cea.svg`;
+
+export default function Group2131327611() {
+  return (
+    <div className="contents relative size-full" data-node-id="956:2309">
+      <div className="-translate-x-1/2 absolute contents left-1/2 top-[68.26px]" data-node-id="956:2310">
+        <div className="absolute contents left-[769.69px] top-[68.26px]" data-node-id="956:2311">
+          <div className="absolute bg-[#f0f5f7] h-[53.742px] left-[769.69px] rounded-[10.237px] top-[68.26px] w-[143.312px]" data-node-id="956:2312" />
+          <div className="-translate-x-1/2 absolute content-stretch flex items-center left-[calc(50%+40.87px)] top-[75.08px]" data-node-id="956:2313">
+            <div className="content-stretch flex gap-[3.412px] items-center leading-[0] relative shrink-0" data-node-id="956:2314">
+              <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="956:2315">
+                <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="956:2316" data-name="Group">
+                  <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="956:2317" data-name="Clip path group">
+                    <div className="col-1 h-[40.182px] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[1.075px_0px] mask-size-[40.182px_40.182px] ml-[-1.08px] mt-0 relative row-1 w-[42.346px]" data-node-id="956:2320" style={{ maskImage: `url("${imgGroup}")` }} data-name="Group">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup1} />
+                    </div>
+                  </div>
+                  <div className="col-1 ml-[0.21px] mt-[0.21px] relative row-1 size-[39.76px]" data-node-id="956:2323" data-name="Vector">
+                    <div className="absolute inset-[-0.53%]">
+                      <img alt="" className="block max-w-none size-full" src={imgVector} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="956:2324">
+                <div className="col-1 ml-0 mt-0 relative row-1 size-[40.182px]" data-node-id="956:2325" data-name="Group">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup2} />
+                </div>
+              </div>
+              <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="956:2329">
+                <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="956:2330" data-name="Group">
+                  <div className="col-1 ml-0 mt-0 relative row-1 size-[40.182px]" data-node-id="956:2331" data-name="Vector">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+                  </div>
+                  <div className="col-1 ml-0 mt-0 relative row-1 size-[40.182px]" data-node-id="956:2332" data-name="Vector">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" height="40.182" src={imgVector2} width="40.182" />
+                  </div>
+                  <div className="col-1 ml-[0.21px] mt-[0.21px] relative row-1 size-[39.76px]" data-node-id="956:2333" data-name="Vector">
+                    <div className="absolute inset-[-0.53%]">
+                      <img alt="" className="block max-w-none size-full" src={imgVector3} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="absolute contents left-[687px] top-[73px]" data-node-id="956:2334">
+          <div className="absolute left-[687px] overflow-clip size-[42px] top-[73px]" data-node-id="956:2335">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2131328921} />
+            <div className="absolute inset-[24.52%_-13.28%_24.62%_8.85%] overflow-clip" data-node-id="956:2337" data-name="1c_ 1">
+              <div className="absolute contents inset-[-231.13%_-426.64%_-1610.35%_-420.23%]" data-node-id="956:2338" style={{ containerType: "size" }} data-name="g10">
+                <div className="absolute contents inset-[-231.13%_-426.64%_-1610.35%_-420.23%]" data-node-id="956:2339" style={{ containerType: "size" }} data-name="g12">
+                  <div className="absolute contents inset-[-231.13%_-426.64%_-1610.35%_-420.23%]" data-node-id="956:2340" style={{ containerType: "size" }} data-name="Clip path group">
+                    <div className="absolute contents inset-0" data-node-id="956:2343" style={{ containerType: "size" }} data-name="g14">
+                      <div className="absolute flex inset-0 items-center justify-center" data-node-id="956:2344" style={{ containerType: "size" }}>
+                        <div className="-rotate-180 -scale-x-100 flex-none h-[100cqh] w-[100cqw]">
+                          <div className="mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[-184.327px_-49.374px] mask-size-[415.332px_414.744px] relative size-full" style={{ maskImage: `url("${imgG20}")` }} data-name="g20">
+                            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgG21} />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute contents left-[740.54px] top-[88.73px]" data-node-id="956:2346">
+        <div className="absolute h-[4.423px] left-[740.54px] top-[88.73px] w-[17.061px]" data-node-id="956:2347">
+          <div className="absolute inset-[-21.43%_-5.56%]">
+            <img alt="" className="block max-w-none size-full" src={imgGroup2131327607} />
+          </div>
+        </div>
+        <div className="absolute flex h-[4.423px] items-center justify-center left-[740.54px] top-[98.97px] w-[17.061px]" data-node-id="956:2350">
+          <div className="-scale-y-100 flex-none rotate-180">
+            <div className="h-[4.423px] relative w-[17.061px]">
+              <div className="absolute inset-[-21.43%_-5.56%]">
+                <img alt="" className="block max-w-none size-full" src={imgGroup2131327608} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Images and SVGs will be stored as constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These constants will be used in the code as the source for the image, ex: <img src={image} />. Image assets are stored on a remote server for 7 days and can be fetched using the provided URLs until they expire.

@@ -1,0 +1,69 @@
+### Ran Playwright code
+```js
+await (async page => {
+  const result = [];
+  const check = (condition, message) => { if (!condition) throw new Error(message); result.push(message); };
+  await page.goto('http://localhost:4173/');
+  await page.evaluate(() => document.fonts.ready);
+  check(await page.locator('.rdv-feature').count() === 4, 'Default: four feature cards');
+  for (let i=0; i<5; i++) {
+    await page.getByRole('tab').nth(i).click();
+    check(await page.locator('[role=tabpanel]:not([hidden])').count() === 1, `Tab ${i+1}: one visible panel`);
+    check(await page.getByRole('tab').nth(i).getAttribute('aria-selected') === 'true', `Tab ${i+1}: selected state`);
+  }
+  await page.keyboard.press('Home');
+  check(await page.getByRole('tab').first().getAttribute('aria-selected') === 'true', 'Home selects first tab');
+  await page.keyboard.press('ArrowDown');
+  check(await page.getByRole('tab').nth(1).getAttribute('aria-selected') === 'true', 'ArrowDown selects next tab');
+  await page.mouse.wheel(0, -100);
+  check(await page.getByRole('tab').nth(1).getAttribute('aria-selected') === 'true', 'Wheel does not switch tabs');
+  await page.evaluate(async () => {
+    const {config} = await import('/scripts/config.js');
+    const {renderPage} = await import('/scripts/blocks.js');
+    const c = structuredClone(config);
+    c.hero.cards = c.hero.cards.slice(0,2);
+    c.hero.buttons.push({label:'Получить консультацию',href:'#methodology'});
+    c.stats = c.stats.slice(0,3);
+    c.chess.hover = 'simple';
+    c.video.type = 'image';c.video.src=c.video.poster;
+    c.workspace.description='';delete c.workspace.tabs[0].items;
+    c.workspace.tabs[0].text='Обычный текст вместо списка.';
+    c.workspace.tabs[0].showMore=false;
+    c.workspace.tabs[0].background=c.video.poster;
+    window.rdvCleanup=renderPage(document.querySelector('#rdv-content'),c);
+  });
+  check(await page.locator('.rdv-feature').count() === 2, 'Config: two feature cards');
+  check(await page.locator('.rdv-stat').count() === 3, 'Config: three stats');
+  check(await page.locator('.rdv-video-trigger').count() === 0, 'Image mode has no play button');
+  check(await page.locator('.rdv-workspace-description').count() === 0, 'Description can be hidden');
+  check(await page.locator('#rdv-panel-0 .rdv-panel-text').textContent() === 'Обычный текст вместо списка.', 'Plain-text tab content');
+  check(await page.locator('#rdv-panel-0 .rdv-more').count() === 0, 'More link can be hidden per tab');
+  check(await page.locator('#rdv-panel-0 .rdv-cloud-diagram').count() === 0, 'Custom background replaces illustration');
+  check(await page.evaluate(() => {const b=[...document.querySelectorAll('.rdv-hero-buttons a')].map(e=>e.getBoundingClientRect());return Math.abs((b[0].right+b[1].left)/2-innerWidth/2)<1}), 'Two CTA buttons centered around their gap');
+  await page.locator('.rdv-chess-card').first().hover();
+  await page.waitForTimeout(300);
+  check(await page.locator('.rdv-chess-card').first().evaluate(e=>getComputedStyle(e).backgroundColor) === 'rgb(255, 255, 255)', 'Simple hover is white');
+  await page.evaluate(async () => {
+    window.rdvCleanup();
+    const {config} = await import('/scripts/config.js');
+    const {renderPage} = await import('/scripts/blocks.js');
+    const c=structuredClone(config);c.hero.showCards=false;
+    window.rdvCleanup=renderPage(document.querySelector('#rdv-content'),c);
+  });
+  check(await page.locator('.rdv-feature-grid').count() === 0, 'Feature row can be hidden');
+  await page.goto('http://localhost:4173/');
+  await page.setViewportSize({width:1280,height:900});
+  check(await page.evaluate(()=>document.documentElement.scrollWidth===innerWidth), 'No horizontal overflow at 1280px');
+  await page.setViewportSize({width:1600,height:1000});
+  await page.mouse.move(1590,0);
+  const broken = await page.evaluate(async () => {
+    const sources=new Set([...document.images].map(i=>i.src));
+    document.querySelectorAll('*').forEach(e=>{for(const m of getComputedStyle(e).backgroundImage.matchAll(/url\("?([^"\)]+)"?\)/g)) sources.add(m[1]);});
+    return (await Promise.all([...sources].map(async s=>{const r=await fetch(s);const b=await r.arrayBuffer();return r.ok&&b.byteLength?null:s}))).filter(Boolean);
+  });
+  check(!broken.length, 'All active local image and background files return nonempty content');
+  await page.screenshot({path:'output/playwright/final-desktop.png',fullPage:true});
+  console.log(JSON.stringify({passed:result.length,checks:result},null,2));
+}
+)(page);
+```

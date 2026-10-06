@@ -1,0 +1,95 @@
+const assetPathPrefix = "https://www.figma.com/api/mcp/asset/95b81158-b6f4-4f8c-bc83-668740163bdd";
+const imgNewLogo2Png = `${assetPathPrefix}/d6205.png`;
+const imgVk = `${assetPathPrefix}/86b37.svg`;
+const imgTg = `${assetPathPrefix}/a5065.svg`;
+const imgSearch = `${assetPathPrefix}/9fec7.svg`;
+
+function Header({ className }: { className?: string }) {
+  return (
+    <div className={className || "content-stretch flex flex-col items-center relative w-[1240px]"} data-node-id="956:25" data-name="Header">
+      <div className="border-[var(--gray\/light,#e7edf1)] border-b border-solid content-stretch flex items-center justify-between py-[12px] relative shrink-0 w-full" data-node-id="956:26">
+        <div className="[word-break:break-word] content-stretch flex font-['Proxima_Nova:Medium'] gap-[24px] items-center leading-[18px] not-italic relative shrink-0 text-[14px] text-[color:var(--black\/black,#080d26)] whitespace-nowrap" data-node-id="956:27">
+          <p className="relative shrink-0" data-node-id="956:28">
+            Блог
+          </p>
+          <p className="relative shrink-0" data-node-id="956:29">
+            Мероприятия
+          </p>
+          <p className="relative shrink-0" data-node-id="956:30">
+            Обновления
+          </p>
+          <p className="relative shrink-0" data-node-id="956:31">
+            Партнерство
+          </p>
+        </div>
+        <div className="content-stretch flex gap-[32px] items-center justify-end relative shrink-0" data-node-id="956:32">
+          <p className="[word-break:break-word] font-['Proxima_Nova:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--gray\/default,#85b0c2)] text-right whitespace-nowrap" data-node-id="956:33">
+            product@rdv-market.ru
+          </p>
+          <div className="content-stretch flex gap-[4px] items-center justify-end relative shrink-0" data-node-id="956:34">
+            <div className="relative shrink-0 size-[24px]" data-node-id="956:35" data-name="vk">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVk} />
+            </div>
+            <div className="relative shrink-0 size-[24px]" data-node-id="956:37" data-name="tg">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgTg} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="content-stretch flex items-center justify-between py-[10px] relative shrink-0 w-full" data-node-id="956:39">
+        <div className="h-[24px] relative shrink-0 w-[290px]" data-node-id="956:40" data-name="new-logo-2.png">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <img alt="" className="absolute h-[99.73%] left-0 max-w-none top-[0.14%] w-full" src={imgNewLogo2Png} />
+          </div>
+        </div>
+        <div className="[word-break:break-word] content-stretch flex font-['Proxima_Nova:Medium'] gap-[24px] items-center justify-center leading-[18px] not-italic relative shrink-0 text-[14px] text-[color:var(--black\/black,#080d26)] uppercase whitespace-nowrap" data-node-id="956:41">
+          <p className="relative shrink-0 text-center" data-node-id="956:42">
+            Возможности
+          </p>
+          <p className="relative shrink-0" data-node-id="956:43">
+            Тарифы
+          </p>
+          <p className="relative shrink-0 text-center" data-node-id="956:44">
+            Проекты
+          </p>
+          <p className="relative shrink-0" data-node-id="956:45">
+            Продвижение
+          </p>
+          <p className="relative shrink-0 text-center" data-node-id="956:46">
+            Центр поддержки
+          </p>
+        </div>
+        <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="956:47">
+          <div className="bg-[var(--gray\/base-0,#f0f5f7)] overflow-clip relative rounded-[8px] shrink-0 size-[40px]" data-node-id="956:48" data-name="Button">
+            <div className="-translate-x-1/2 -translate-y-1/2 absolute left-1/2 size-[16px] top-1/2" data-node-id="956:49" data-name="search">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSearch} />
+            </div>
+          </div>
+          <div className="bg-[var(--blue\/light-blue,#00bee4)] content-stretch flex items-center justify-center overflow-clip px-[24px] py-[13px] relative rounded-[100px] shrink-0" data-node-id="956:53" data-name="Button">
+            <div className="[word-break:break-word] flex flex-col font-['Proxima_Nova:Medium'] justify-center leading-[0] not-italic relative shrink-0 text-[12px] text-[color:var(--white,white)] text-center uppercase whitespace-nowrap" data-node-id="956:54">
+              <p className="leading-[14px]">Оставить заявку</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Header1() {
+  return <Header className="content-stretch flex flex-col items-center relative size-full" />;
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+These styles are contained in the design: 14/Medium: Font(family: "Proxima Nova", style: Medium, size: 14, weight: 500, lineHeight: 18, letterSpacing: 0), 13/Medium: Font(family: "Proxima Nova", style: Medium, size: 13, weight: 500, lineHeight: 100, letterSpacing: 0), 14/Medium-UP: Font(family: "Proxima Nova", style: Medium, size: 14, weight: 500, lineHeight: 18, letterSpacing: 0), 12/Medium-UP: Font(family: "Proxima Nova", style: Medium, size: 12, weight: 500, lineHeight: 14, letterSpacing: 0).
+
+Images and SVGs will be stored as constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These constants will be used in the code as the source for the image, ex: <img src={image} />. Image assets are stored on a remote server for 7 days and can be fetched using the provided URLs until they expire.

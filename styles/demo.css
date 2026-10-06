@@ -1,0 +1,7 @@
+/* Local preview shell only; new blocks have independent styles. */
+html{font-size:.625vw;scroll-behavior:smooth}body{margin:0;background:#fff;min-width:320px}.rdv-site-shell{display:block;min-height:0;font-family:"Proxima Nova Rg",Arial,sans-serif;font-size:16px;line-height:1.2}.rdv-site-shell [hidden]{display:none!important}
+#rdv-content{padding-top:var(--rdv-preview-header-height,63px)}
+/* The imported body layout belongs to a whole document, not a header/footer wrapper. */
+@scope (.rdv-site-shell){:scope{display:block;min-height:0}}
+
+@media (max-width:1099px),(min-width:1300px){html{font-size:10px}}
