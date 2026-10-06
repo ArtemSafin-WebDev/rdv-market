@@ -3,22 +3,18 @@ const asset = name => typeof window === 'undefined' ? `./assets/figma/${name}` :
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const lines = value => esc(value).replace(/\n/g, '<br> ');
 const image = (name, className = '') => `<img class="${className}" src="${asset(name)}" alt="" draggable="false">`;
-const background = url => url ? ` style="background-image:url('${esc(String(url).replace(/'/g, '%27').replace(/"/g, '%22').replace(/[\r\n]/g, ''))}')"` : '';
 const more = (href, extra = '') => `<a class="rdv-more ${extra}" href="${esc(href)}"><span class="rdv-more__label">Подробнее</span>${image('1a369.svg')}</a>`;
 const mobileIcon = (icon, className) => !icon ? '' : `<span class="${className} rdv-mobile-icon${icon.kind ? ` rdv-mobile-icon--${esc(icon.kind)}` : ''}" aria-hidden="true">${(icon.layers || [icon.src]).map(src => `<img src="${esc(src)}" alt="" draggable="false">`).join('')}</span>`;
 
-function renderBrand(brand) {
-  return `<div class="rdv-hero__brand rdv-hero__logos"><img src="${esc(brand.source.src)}" alt="${esc(brand.source.alt)}"><img src="${esc(brand.connector)}" alt="" aria-hidden="true"><div class="rdv-hero__marketplaces">${brand.marketplaces.map(item => `<img src="${esc(item.src)}" alt="${esc(item.alt)}">`).join('')}</div></div>`;
-}
-
 export function renderHero(data) {
   const cards = data.showCards ? data.cards.slice(0, 4) : [];
-  return `<section class="rdv-hero" data-rdv-block="hero" aria-labelledby="rdv-hero__title"${background(data.background)}>
+  return `<section class="rdv-hero" data-rdv-block="hero" aria-labelledby="rdv-hero__title">
     <div class="rdv-hero__inner">
       <div class="rdv-hero__intro">
-      ${data.brand ? renderBrand(data.brand) : data.image ? `<img class="rdv-hero__brand" src="${esc(data.image)}" alt="${esc(data.imageAlt)}">` : ''}
+      ${data.background ? `<picture class="rdv-hero__background" aria-hidden="true">${data.backgroundMobile ? `<source media="(max-width: 767px)" srcset="${esc(data.backgroundMobile)}">` : ''}<img src="${esc(data.background)}" alt="" fetchpriority="high" draggable="false"></picture>` : ''}
+      ${data.image ? `<img class="rdv-hero__brand" src="${esc(data.image)}" alt="${esc(data.imageAlt)}" draggable="false">` : ''}
       <h1 class="rdv-hero__title" id="rdv-hero__title"><span>${lines(data.accent)}</span><br>${lines(data.title)}</h1>
-      <div class="rdv-hero__buttons" data-count="${Math.min(2, data.buttons.length)}">${data.buttons.slice(0, 2).map((button, i) => `<a class="rdv-button${i ? ' rdv-button--secondary' : ''}" href="${esc(button.href)}">${esc(button.label)}</a>`).join('')}</div>
+      <div class="rdv-hero__buttons">${data.buttons.slice(0, 2).map((button, i) => `<a class="rdv-button${i ? ' rdv-button--secondary' : ''}" href="${esc(button.href)}">${esc(button.label)}</a>`).join('')}</div>
       </div>
       ${cards.length ? `<div class="rdv-hero__cards">${cards.map(card => `<article class="rdv-hero__card${card.mobileIcon ? ' rdv-hero__card--mobile-icon' : ''}"><div class="rdv-hero__copy"><h2>${esc(card.title)}</h2><p>${lines(card.text)}</p></div><div class="rdv-hero__art"><img src="${esc(card.image)}" alt="" draggable="false"></div>${mobileIcon(card.mobileIcon, 'rdv-hero__mobile-icon')}</article>`).join('')}</div>` : ''}
     </div>
@@ -34,7 +30,7 @@ export function renderVideo(data) {
 
 export function renderChess(data) {
   return `<section class="rdv-chess" data-rdv-block="chess" data-hover="${esc(data.hover)}">${data.cards.map(card => `<a class="rdv-chess__card rdv-chess__card--${esc(card.layout)}" href="${esc(card.href)}" data-hover="${esc(card.hover || data.hover)}" aria-label="${esc(card.title.replace(/\n/g, ' '))} — подробнее">
-    <div class="rdv-chess__art" aria-hidden="true"${background(card.background)}></div>
+    ${card.background ? `<img class="rdv-chess__art" src="${esc(card.background)}" alt="" aria-hidden="true" draggable="false">` : ''}
     <div class="rdv-chess__default">
       <h3>${lines(card.title)}</h3><span class="rdv-chess__arrow">${image('950f6.svg')}</span>
       <p class="rdv-chess__description">${lines(card.text)}</p>
@@ -60,7 +56,7 @@ export function renderArchitecture(data, stats) {
 export function renderWorkspace(data) {
   return `<section class="rdv-workspace" data-rdv-block="workspace" aria-labelledby="rdv-workspace-title"><div class="rdv-workspace__inner"><h2 id="rdv-workspace-title">${esc(data.title)} <span>${esc(data.accent)}</span><br>${esc(data.titleEnd)}</h2>${data.description ? `<p class="rdv-workspace__description">${lines(data.description)}</p>` : ''}
     <div class="rdv-workspace__tabs"><div class="rdv-workspace__tablist" role="tablist" aria-label="Преимущества RDV Маркет" aria-orientation="vertical">${data.tabs.map((tab, i) => `<div class="rdv-workspace__item"><button type="button" class="rdv-workspace__tab" role="tab" id="rdv-tab-${i}" aria-controls="rdv-panel-${i}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}"><span class="rdv-workspace__icon${tab.iconHasBackground ? ' rdv-workspace__icon--complete' : ''}">${tab.iconName && tabIcons[tab.iconName] ? tabIcons[tab.iconName] : `<img src="${esc(tab.icon)}" alt="">`}</span><span class="rdv-workspace__label">${lines(tab.label)}</span><span class="rdv-workspace__toggle" aria-hidden="true">${image('mobile-plus.svg', 'rdv-workspace__plus')}${image('mobile-minus.svg', 'rdv-workspace__minus')}</span></button></div>`).join('')}</div>
-    ${data.tabs.map((tab, i) => `<div class="rdv-workspace__panel" role="tabpanel" id="rdv-panel-${i}" aria-labelledby="rdv-tab-${i}" tabindex="0"${i ? ' hidden' : ''}${background(tab.background)}><div class="rdv-workspace__panel-inner"><div class="rdv-workspace__copy">${tab.items ? `<ul class="rdv-workspace__list">${tab.items.map(item => `<li>${esc(item)}</li>`).join('')}</ul>` : `<p class="rdv-workspace__text">${lines(tab.text)}</p>`}${tab.showMore && tab.href ? more(tab.href) : ''}</div></div></div>`).join('')}</div>
+    ${data.tabs.map((tab, i) => `<div class="rdv-workspace__panel" role="tabpanel" id="rdv-panel-${i}" aria-labelledby="rdv-tab-${i}" tabindex="0"${i ? ' hidden' : ''}>${tab.background ? `<img class="rdv-workspace__art" src="${esc(tab.background)}" alt="" aria-hidden="true" draggable="false">` : ''}<div class="rdv-workspace__panel-inner"><div class="rdv-workspace__copy">${tab.items ? `<ul class="rdv-workspace__list">${tab.items.map(item => `<li>${esc(item)}</li>`).join('')}</ul>` : `<p class="rdv-workspace__text">${lines(tab.text)}</p>`}${tab.showMore && tab.href ? more(tab.href) : ''}</div></div></div>`).join('')}</div>
   </div></section>`;
 }
 

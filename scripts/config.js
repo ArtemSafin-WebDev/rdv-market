@@ -4,12 +4,15 @@ const asset = name => typeof window === 'undefined' ? `./assets/figma/${name}` :
 export const config = {
   hero: {
     background: asset('hero-background@2x.webp'),
-    image: null,
-    brand: { source: { src: asset('hero-1c.svg'), alt: '1С' }, connector: asset('hero-exchange.svg'), marketplaces: [{ src: asset('hero-ozon.svg'), alt: 'Ozon' }, { src: asset('hero-wb.svg'), alt: 'Wildberries' }, { src: asset('hero-market.svg'), alt: 'Яндекс Маркет' }] },
+    backgroundMobile: asset('hero-background-mobile.svg'),
+    image: asset('hero-brand.svg'),
     imageAlt: 'Интеграция 1С с Ozon, Wildberries и Яндекс Маркет',
     accent: 'Единая система',
     title: 'управления маркетплейсами\nв вашей 1С',
-    buttons: [{ label: 'Запросить демонстрацию', href: `${site}/#formEvent` }],
+    buttons: [
+      { label: 'Запросить демонстрацию', href: `${site}/#formEvent` },
+      { label: 'Получить консультацию', href: `${site}/#formEvent` }
+    ],
     showCards: true,
     cards: [
       { title: 'FBS-отгрузки за 12 часов', text: 'Инструменты для быстрой обработки и отгрузки 10 000+ FBS-заказов каждый день', image: asset('hero-card-1@4x.webp'), mobileIcon: { src: asset('mobile-delivery.svg') } },
