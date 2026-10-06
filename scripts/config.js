@@ -1,18 +1,17 @@
-// Контент и настройки блоков. При интеграции эти данные передает CMS.
 const site = 'https://rdv-market.ru';
 const asset = name => typeof window === 'undefined' ? `./assets/figma/${name}` : new URL(`../assets/figma/${name}`, import.meta.url).href;
 
 export const config = {
   hero: {
-    background: asset('hero-background@2x.webp'), // Любой URL фона; null убирает фон.
+    background: asset('hero-background@2x.webp'),
     image: null,
     brand: { source: { src: asset('hero-1c.svg'), alt: '1С' }, connector: asset('hero-exchange.svg'), marketplaces: [{ src: asset('hero-ozon.svg'), alt: 'Ozon' }, { src: asset('hero-wb.svg'), alt: 'Wildberries' }, { src: asset('hero-market.svg'), alt: 'Яндекс Маркет' }] },
     imageAlt: 'Интеграция 1С с Ozon, Wildberries и Яндекс Маркет',
     accent: 'Единая система',
     title: 'управления маркетплейсами\nв вашей 1С',
-    buttons: [{ label: 'Запросить демонстрацию', href: `${site}/#formEvent` }], // 1–2
+    buttons: [{ label: 'Запросить демонстрацию', href: `${site}/#formEvent` }],
     showCards: true,
-    cards: [ // 2–4. Подготовленные картинки выводятся целиком, без object-fit: cover.
+    cards: [
       { title: 'FBS-отгрузки за 12 часов', text: 'Инструменты для быстрой обработки и отгрузки 10 000+ FBS-заказов каждый день', image: asset('hero-card-1@4x.webp'), mobileIcon: { src: asset('mobile-delivery.svg') } },
       { title: 'Честный Знак', text: 'Автоматизация полного цикла работы с маркировкой на маркетплейсах', image: asset('hero-card-2@4x.webp'), mobileIcon: { src: asset('mobile-barcode.svg') } },
       { title: 'Корректный учет', text: 'Достоверные данные для налоговой отчетности\nза 1 день', image: asset('hero-card-3@4x.webp'), mobileIcon: { kind: 'financial', layers: [asset('mobile-financial-document.svg'), asset('mobile-financial-currency.svg')] } },
@@ -26,13 +25,12 @@ export const config = {
     title: 'Посмотрите,\nкак всё устроено',
     text: 'Познакомьтесь с возможностями решения и оцените,\nкак оно впишется в ваши процессы',
     image: asset('35507.svg'),
-    captions: null // URL .vtt для загруженного видео, если доступны субтитры.
+    captions: null
   },
-  // Заголовок существует отдельно от сетки: его можно переставить или убрать.
   methodologyTitle: 'Готовая методология и эталонные процессы\nработы с маркетплейсами',
   methodologyAccent: 'в 1С',
   chess: {
-    hover: 'results', // 'results' | 'simple'; также можно задать hover у отдельной карточки.
+    hover: 'results', // 'results' | 'simple'
     cards: [
       { layout: 'conveyor', mobileIcon: { src: asset('mobile-conveyor.svg') }, title: 'Конвейерная\nобработка заказов', text: 'Сквозной процесс от получения заказа до отгрузки с автоматизацией и готовыми рабочими местами для склада', href: `${site}/bystraja-upakovka-fbs/`, background: asset('chess-conveyor@2x.webp'), results: [["–35%", "сокращение времени на сборку и упаковку отправлений"], ["99.8%", "точность комплектации заказов без пересорта"], ["х2.5", "увеличение пропускной способности склада"]] },
       { layout: 'supplies', mobileIcon: { src: asset('mobile-warehouse.svg') }, title: 'Работа с поставками', text: 'Удобные рабочие места для создания поставок, сверки остатков на складах и контроля расхождений', href: `${site}/integratsiya-1c-fbo/`, icon: asset('a4f25.svg'), results: [["+40%", "скорость создания поставок"], ["0%", "расхождений при приемке"]] },
@@ -47,7 +45,7 @@ export const config = {
     image: asset('architecture-diagram@2x.webp'),
     imageAlt: 'Учетная система 1С и расширение RDV Маркет обмениваются данными с облачной платформой RDV, которая связана по API с Ozon, Wildberries и Яндекс Маркет'
   },
-  stats: [ // 3–4 карточки, равные доли ширины контейнера.
+  stats: [
     { value: '3,5млн', text: 'заказов обрабатывается\nв экосистеме RDV Маркет каждый месяц' },
     { value: '1200+', text: 'Личных кабинетов подключено к RDV Маркет' },
     { value: '90 000+', text: 'FBS-заказов в сутки может обработать система в рамках\n1 клиента' },
@@ -61,7 +59,6 @@ export const config = {
       { label: 'Клиентский опыт — в центре внимания', iconName: 'experience', background: asset('workspace-experience@2x.webp'), showMore: true, href: `${site}/#formEvent`, items: ['Принцип единого окна в интерфейсе и минималистичный дизайн', 'Личный менеджер и регулярная коммуникация по пожеланиям к развитию продукта', 'База знаний онлайн с актуальными текстовыми и видео-инструкциями'] },
       { label: 'Плавный запуск и нацеленность на результат', iconName: 'launch', background: asset('workspace-launch@2x.webp'), showMore: true, href: `${site}/#formEvent`, items: ['Бесплатное внедрение с обучением пользователей', 'Тестовый период 21 день для проверки функционала', 'Самостоятельное подключение с помощью текстовых и видео инструкций', 'Запуск работы с маркетплейсами под ключ и обучение для больших команд'] },
       { label: 'Комплекс решений для e-commerce в одном окне', iconName: 'solutions', background: asset('workspace-solutions@2x.webp'), showMore: true, href: `${site}/#formEvent`, items: ['Сервис аренды 1С и аренда выделенного сервера', 'Команда экспертов по настройке, внедрению и доработке 1С', 'Проекты по автоматизации склада и внедрение работы с маркировкой Честный ЗНАК', 'Команда по аналитике и продвижению бизнеса на маркетплейсах'] },
-      // В Figma здесь «Текст». Описание ниже взято с действующего сайта.
       { label: 'Техническая поддержка 7 дней в неделю', iconName: 'support', background: asset('workspace-support@2x.webp'), showMore: true, href: `${site}/podderzhka/`, items: ['Прозрачные процессы и гарантированный уровень качества оказания услуг (SLA)', 'Гибкие возможности коммуникации пользователей с сотрудниками поддержки', 'Сотрудники со специализацией в e-commerce уже на первой линии поддержки', 'Готовая база знаний с подробными инструкциями по работе с сервисом'] }
     ]
   }

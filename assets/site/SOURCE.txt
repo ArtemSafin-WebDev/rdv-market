@@ -1,3 +1,1 @@
-Header/footer markup and CSS: https://rdv-market.ru/
-Retrieved 2026-10-04. Menu/search interactions adapted locally. CTA links open production form.
-Verified against production 2026-10-06 at 360, 390, 820 and 1600 px. No preview overrides of header/footer geometry. Original fixed header retained; content reserves its measured height.
+Шапка, футер и шрифты: https://rdv-market.ru/

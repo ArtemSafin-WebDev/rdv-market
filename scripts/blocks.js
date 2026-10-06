@@ -5,14 +5,12 @@ const lines = value => esc(value).replace(/\n/g, '<br> ');
 const image = (name, className = '') => `<img class="${className}" src="${asset(name)}" alt="" draggable="false">`;
 const background = url => url ? ` style="background-image:url('${esc(String(url).replace(/'/g, '%27').replace(/"/g, '%22').replace(/[\r\n]/g, ''))}')"` : '';
 const more = (href, extra = '') => `<a class="rdv-more ${extra}" href="${esc(href)}"><span class="rdv-more__label">Подробнее</span>${image('1a369.svg')}</a>`;
-// Mobile artwork may consist of several exported Figma layers in one icon slot.
 const mobileIcon = (icon, className) => !icon ? '' : `<span class="${className} rdv-mobile-icon${icon.kind ? ` rdv-mobile-icon--${esc(icon.kind)}` : ''}" aria-hidden="true">${(icon.layers || [icon.src]).map(src => `<img src="${esc(src)}" alt="" draggable="false">`).join('')}</span>`;
 
 function renderBrand(brand) {
   return `<div class="rdv-hero__brand rdv-hero__logos"><img src="${esc(brand.source.src)}" alt="${esc(brand.source.alt)}"><img src="${esc(brand.connector)}" alt="" aria-hidden="true"><div class="rdv-hero__marketplaces">${brand.marketplaces.map(item => `<img src="${esc(item.src)}" alt="${esc(item.alt)}">`).join('')}</div></div>`;
 }
 
-/** Первый экран: фон, картинка произвольного размера, 1–2 CTA, 2–4 карточки. */
 export function renderHero(data) {
   const cards = data.showCards ? data.cards.slice(0, 4) : [];
   return `<section class="rdv-hero" data-rdv-block="hero" aria-labelledby="rdv-hero__title"${background(data.background)}>
@@ -27,7 +25,6 @@ export function renderHero(data) {
   </section>`;
 }
 
-/** Видео: локальный файл, Rutube или изображение; сторонний плеер загружается по клику. */
 export function renderVideo(data) {
   const media = data.type === 'image'
     ? `<img class="rdv-video__poster" src="${esc(data.src)}" alt="${esc(data.imageAlt || 'Обзор RDV Маркет')}">`
@@ -35,7 +32,6 @@ export function renderVideo(data) {
   return `<section class="rdv-video" data-rdv-block="video" data-rdv-video="${esc(JSON.stringify({type:data.type,src:data.src,poster:data.poster,captions:data.captions}))}" aria-labelledby="rdv-video-title"><div class="rdv-video__media${data.type === 'image' ? ' rdv-video__media--image' : ''}">${media}</div><div class="rdv-video__copy"><h2 id="rdv-video-title">${lines(data.title)}</h2><p>${lines(data.text)}</p>${data.image ? `<div class="rdv-video__illustration"><img src="${esc(data.image)}" alt=""></div>` : ''}</div></section>`;
 }
 
-/** Текст обоих состояний участвует в расчете высоты через общую ячейку grid. */
 export function renderChess(data) {
   return `<section class="rdv-chess" data-rdv-block="chess" data-hover="${esc(data.hover)}">${data.cards.map(card => `<a class="rdv-chess__card rdv-chess__card--${esc(card.layout)}" href="${esc(card.href)}" data-hover="${esc(card.hover || data.hover)}" aria-label="${esc(card.title.replace(/\n/g, ' '))} — подробнее">
     <div class="rdv-chess__art" aria-hidden="true"${background(card.background)}></div>
@@ -57,12 +53,10 @@ export function renderStats(data) {
   return `<section class="rdv-stats" data-rdv-block="stats" aria-label="RDV Маркет в цифрах">${data.slice(0, 4).map(stat => `<article class="rdv-stats__item"><h2>${esc(stat.value)}</h2><p>${lines(stat.text)}</p></article>`).join('')}</section>`;
 }
 
-/** Диаграмма в 2× WebP и карточки статистики в одном адаптивном блоке. */
 export function renderArchitecture(data, stats) {
   return `<section class="rdv-architecture" data-rdv-block="architecture" aria-label="${esc(data.title)}"><h2 class="rdv-architecture__title">${esc(data.title)}</h2><div class="rdv-architecture__diagram"><img src="${esc(data.image)}" alt="${esc(data.imageAlt)}" width="1238" height="442" loading="lazy" decoding="async"></div>${renderStats(stats)}</section>`;
 }
 
-/** Вкладки с независимыми фоном, иконкой, текстом/списком и ссылкой. */
 export function renderWorkspace(data) {
   return `<section class="rdv-workspace" data-rdv-block="workspace" aria-labelledby="rdv-workspace-title"><div class="rdv-workspace__inner"><h2 id="rdv-workspace-title">${esc(data.title)} <span>${esc(data.accent)}</span><br>${esc(data.titleEnd)}</h2>${data.description ? `<p class="rdv-workspace__description">${lines(data.description)}</p>` : ''}
     <div class="rdv-workspace__tabs"><div class="rdv-workspace__tablist" role="tablist" aria-label="Преимущества RDV Маркет" aria-orientation="vertical">${data.tabs.map((tab, i) => `<div class="rdv-workspace__item"><button type="button" class="rdv-workspace__tab" role="tab" id="rdv-tab-${i}" aria-controls="rdv-panel-${i}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}"><span class="rdv-workspace__icon${tab.iconHasBackground ? ' rdv-workspace__icon--complete' : ''}">${tab.iconName && tabIcons[tab.iconName] ? tabIcons[tab.iconName] : `<img src="${esc(tab.icon)}" alt="">`}</span><span class="rdv-workspace__label">${lines(tab.label)}</span><span class="rdv-workspace__toggle" aria-hidden="true">${image('mobile-plus.svg', 'rdv-workspace__plus')}${image('mobile-minus.svg', 'rdv-workspace__minus')}</span></button></div>`).join('')}</div>

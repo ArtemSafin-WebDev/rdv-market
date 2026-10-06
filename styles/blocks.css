@@ -2,7 +2,6 @@
 @font-face{font-family:RDV Proxima;src:url('../assets/fonts/ProximaNova-Semibold.woff2') format('woff2');font-weight:500 600;font-display:swap}
 @font-face{font-family:RDV Proxima;src:url('../assets/fonts/ProximaNova-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
 
-/* Все правила ограничены пространством имен rdv. */
 :is(.rdv-hero,.rdv-video,.rdv-heading,.rdv-chess,.rdv-architecture,.rdv-stats,.rdv-workspace){--rdv-ink:#080d26;--rdv-cyan:#00bee4;--rdv-blue:#174f77;--rdv-surface:#f0f5f7;--rdv-line:#e7edf1;--rdv-muted:#85b0c2;--rdv-container:1240px;color:var(--rdv-ink);font:400 16px/22px 'RDV Proxima',Arial,sans-serif;min-width:0;box-sizing:border-box}
 :is(.rdv-hero,.rdv-video,.rdv-heading,.rdv-chess,.rdv-architecture,.rdv-stats,.rdv-workspace) *,:is(.rdv-hero,.rdv-video,.rdv-heading,.rdv-chess,.rdv-architecture,.rdv-stats,.rdv-workspace) *::before,:is(.rdv-hero,.rdv-video,.rdv-heading,.rdv-chess,.rdv-architecture,.rdv-stats,.rdv-workspace) *::after{box-sizing:border-box}
 :is(.rdv-hero,.rdv-video,.rdv-heading,.rdv-chess,.rdv-architecture,.rdv-stats,.rdv-workspace) :where(h1,h2,h3,p,ul,dl,dd){margin:0}
@@ -185,7 +184,7 @@
   .rdv-hero__mobile-icon{align-self:end}
   .rdv-mobile-icon{display:grid;grid-template-columns:40px;grid-template-rows:minmax(40px,auto);place-items:center;width:40px;min-height:40px}
   .rdv-mobile-icon img{grid-area:1/1;max-width:100%;max-height:40px;object-fit:contain}
-  /* Both financial SVG layers share a grid cell and contribute to its size. */
+  /* Слои иконки делят одну ячейку и задают ее размер. */
   .rdv-mobile-icon--financial img:last-child{place-self:end;margin:0 6.4px 6px 0;transform:scaleY(-1)}
   .rdv-video{width:100%;margin-top:0;min-height:0;padding:24px 20px;border-radius:0;grid-template-columns:minmax(0,1fr);gap:20px}
   .rdv-video__copy{grid-row:1;padding-top:0}
@@ -211,7 +210,7 @@
   .rdv-chess__mobile-more-arrow img{position:absolute;left:-.567568px;top:-.567568px}
   /* Иконка 40 px выступает на 5 px с каждой стороны строки кнопки 30 px. */
   .rdv-chess__mobile-icon{grid-column:2;grid-row:3;align-self:center;margin-block:-5px}
-  /* A touch tap follows the card link; desktop hover results never cover mobile copy. */
+  /* На сенсорных экранах карточка открывается по нажатию. */
   .rdv-chess__card[data-hover=results]:is(:hover,:focus-visible)::before{opacity:0}
   .rdv-chess__card[data-hover=results]:is(:hover,:focus-visible) .rdv-chess__default{opacity:1;visibility:visible;transition:none}
   .rdv-chess__card:is(:hover,:focus-visible) .rdv-chess__mobile-more{background:var(--rdv-cyan);border-color:var(--rdv-cyan);color:#fff}

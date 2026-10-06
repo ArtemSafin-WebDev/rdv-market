@@ -1,9 +1,0 @@
-Architecture RDV Market — verified
-Viewports: 1600, 360, 320, 820 px.
-No horizontal overflow at checked widths.
-WebP loaded with natural dimensions 2476 x 884 px.
-Desktop and mobile screenshots visually compared with Figma 956:2378 and 1006:1292.
-Desktop: 42/52 px heading, 44 px heading-to-diagram gap, 37 px diagram-to-stats gap, 4 cards with 24 px gap.
-Mobile: 24/30 px heading, 20 px section gaps, 120 px diagram slot, vertical cards with 12 px gap, 32 px section padding.
-Build and JavaScript syntax checks passed.
-Static architecture.html includes diagram and 4 cards.

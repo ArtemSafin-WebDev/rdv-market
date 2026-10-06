@@ -1,4 +1,3 @@
-// Original header markup/classes; only the standalone preview interactions live here.
 const header = document.querySelector('.rdv-site-shell .header');
 if (header) {
   // Резервируем место под исходную fixed-шапку только в локальном превью.
@@ -41,5 +40,4 @@ if (header) {
   document.addEventListener('keydown', event => { if (event.key === 'Escape') { close(); search.classList.remove('active'); } });
 }
 
-// Preserve the production button markup/styles; the preview opens the live form.
 document.querySelectorAll('.rdv-site-shell [data-modal]').forEach(button => button.addEventListener('click', () => { window.location.href = 'https://rdv-market.ru/#formEvent'; }));

@@ -2,3 +2,5 @@ dist/
 .playwright-cli/
 node_modules/
 .DS_Store
+output/
+reference/
