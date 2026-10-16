@@ -184,7 +184,6 @@
   .rdv-mobile-icon{display:grid;grid-template-columns:40px;grid-template-rows:minmax(40px,auto);place-items:center;width:40px;min-height:40px}
   .rdv-mobile-icon img{grid-area:1/1;max-width:100%;max-height:40px;object-fit:contain}
   /* Слои иконки делят одну ячейку и задают ее размер. */
-  .rdv-mobile-icon--financial img:last-child{place-self:end;margin:0 6.4px 6px 0;transform:scaleY(-1)}
   .rdv-video{width:100%;margin-bottom:32px;min-height:0;padding:24px 20px;border-radius:0;grid-template-columns:minmax(0,1fr);gap:20px}
   .rdv-video__copy{grid-row:1;padding-top:0}
   .rdv-video__copy p{margin-top:12px}
