@@ -2,6 +2,40 @@ const site = 'https://rdv-market.ru';
 const asset = name => typeof window === 'undefined' ? `./assets/figma/${name}` : new URL(`../assets/figma/${name}`, import.meta.url).href;
 
 export const config = {
+  business: {
+    title: 'Решаем задачи',
+    accent: 'разных уровней бизнеса',
+    showTitle: true,
+    showCallouts: false,
+    showMore: true,
+    showArrow: true,
+    cards: [
+      {
+        title: 'Интеграция вашей 1С с маркетплейсами',
+        text: 'Готовое решение RDV Маркет для типовых версий 1С:УНФ, 1С:УТ, 1С:КА или 1С:ERP. Быстрая установка и бесплатный тест в течение 21 дня',
+        href: `${site}/`,
+        clickable: true,
+        image: asset('business-integration@2x.png'),
+        mobileArrow: asset('business-mobile-arrow-integration.svg')
+      },
+      {
+        title: 'Автоматизация крупных производителей и дистрибьюторов',
+        text: 'Встраиваем работу с маркетплейсами в сложные ИТ-инфраструктуры с сохранением привычных процессов и стандартов учёта',
+        href: `${site}/cases/enterprise/`,
+        clickable: true,
+        image: asset('business-automation@2x.png'),
+        mobileArrow: asset('business-mobile-arrow-automation.svg')
+      },
+      {
+        title: 'Внедрение 1С для работы с маркетплейсами',
+        text: 'Готовая учётная система для малого бизнеса. Облачная 1С, настройка системы, интеграция с площадками и комплексное обучение сотрудников',
+        href: `${site}/cases/vnedrenie-1c-dlya-marketpleysov/`,
+        clickable: true,
+        image: asset('business-implementation@2x.png'),
+        mobileArrow: asset('business-mobile-arrow-implementation.svg')
+      }
+    ]
+  },
   hero: {
     background: asset('hero-background@2x.webp'),
     backgroundMobile: asset('hero-background-mobile.svg'),
@@ -17,8 +51,8 @@ export const config = {
     cards: [
       { title: 'FBS-отгрузки за 12 часов', text: 'Инструменты для быстрой обработки и отгрузки 10 000+ FBS-заказов каждый день', image: asset('hero-card-1@4x.webp'), mobileIcon: { src: asset('mobile-delivery.svg') } },
       { title: 'Честный Знак', text: 'Автоматизация полного цикла работы с маркировкой на маркетплейсах', image: asset('hero-card-2@4x.webp'), mobileIcon: { src: asset('mobile-barcode.svg') } },
-      { title: 'Корректный учет', text: 'Достоверные данные для налоговой отчетности\nза 1 день', image: asset('hero-card-3@4x.webp'), mobileIcon: { kind: 'financial', layers: [asset('mobile-financial-document.svg'), asset('mobile-financial-currency.svg')] } },
-      { title: 'Аналитика продаж', text: 'Юнит-экономика и P&L\nс данными вашей 1С', image: asset('hero-card-4@4x.webp'), mobileIcon: { src: asset('mobile-chart.svg') } }
+      { title: 'Корректный учет', text: 'Достоверные данные для налоговой отчетности за 1 день', image: asset('hero-card-3@4x.webp'), mobileIcon: { kind: 'financial', layers: [asset('mobile-financial-document.svg'), asset('mobile-financial-currency.svg')] } },
+      { title: 'Аналитика продаж', text: 'Юнит-экономика и P&L с данными вашей 1С', image: asset('hero-card-4@4x.webp'), mobileIcon: { src: asset('mobile-chart.svg') } }
     ]
   },
   video: {
@@ -35,12 +69,12 @@ export const config = {
   chess: {
     hover: 'results', // 'results' | 'simple'
     cards: [
-      { layout: 'conveyor', mobileIcon: { src: asset('mobile-conveyor.svg') }, title: 'Конвейерная\nобработка заказов', text: 'Сквозной процесс от получения заказа до отгрузки с автоматизацией и готовыми рабочими местами для склада', href: `${site}/bystraja-upakovka-fbs/`, background: asset('chess-conveyor@2x.webp'), results: [["–35%", "сокращение времени на сборку и упаковку отправлений"], ["99.8%", "точность комплектации заказов без пересорта"], ["х2.5", "увеличение пропускной способности склада"]] },
+      { layout: 'conveyor', mobileIcon: { src: asset('mobile-conveyor.svg') }, title: 'Конвейерная обработка заказов', text: 'Сквозной процесс от получения заказа до отгрузки с автоматизацией и готовыми рабочими местами для склада', href: `${site}/bystraja-upakovka-fbs/`, background: asset('chess-conveyor@2x.webp'), results: [["–35%", "сокращение времени на сборку и упаковку отправлений"], ["99.8%", "точность комплектации заказов без пересорта"], ["х2.5", "увеличение пропускной способности склада"]] },
       { layout: 'supplies', mobileIcon: { src: asset('mobile-warehouse.svg') }, title: 'Работа с поставками', text: 'Удобные рабочие места для создания поставок, сверки остатков на складах и контроля расхождений', href: `${site}/integratsiya-1c-fbo/`, icon: asset('a4f25.svg'), results: [["+40%", "скорость создания поставок"], ["0%", "расхождений при приемке"]] },
       { layout: 'analytics', mobileIcon: { src: asset('mobile-analytics.svg') }, title: 'Аналитика продаж', text: 'Встраиваем интерфейсы и готовые рабочие места в вашу инфраструктуру с сохранением привычных процессов', href: `${site}/analitika-unit-ekonomika`, icon: asset('614ae.svg'), results: [["+15%", "прирост рентабельности"], ["-25%", "неликвидных запасов"]] },
-      { layout: 'sync', mobileIcon: { src: asset('mobile-sync.svg') }, title: 'Синхронизация остатков', text: 'Моментальное обновление\nостатков и загрузка заказов даже\nпри высокой интенсивности продаж\nв 5 000+ заказов в день', href: `${site}/integratsiya-1c-fbs/`, icon: asset('01fc4.svg'), results: [["< 5 сек", "время обновления витрин"], ["-98%", "отмен заказов из-за ошибок"]] },
+      { layout: 'sync', mobileIcon: { src: asset('mobile-sync.svg') }, title: 'Синхронизация остатков', text: 'Моментальное обновление остатков и загрузка заказов даже при высокой интенсивности продаж в 5 000+ заказов в день', href: `${site}/integratsiya-1c-fbs/`, icon: asset('01fc4.svg'), results: [["< 5 сек", "время обновления витрин"], ["-98%", "отмен заказов из-за ошибок"]] },
       { layout: 'reports', mobileIcon: { kind: 'report', src: asset('mobile-report.svg') }, title: 'Отражение отчетов', text: 'Автоматизация загрузки и отражения отчетов с полным соответствием налоговому законодательству', href: `${site}/finansovuy-uchet-marketpleysov/`, background: asset('chess-reports@2x.webp'), results: [["15 мин", "вместо нескольких дней на сверку и ввод отчетов вручную"], ["100%", "соответствие требованиям налогового учета РФ"], ["0", "ошибок из-за человеческого фактора при расчетах комиссий"]] },
-      { layout: 'marking', mobileIcon: { kind: 'marking', src: asset('mobile-marking.svg') }, title: 'Честный Знак', text: 'Работа со сканером и понятный автоматизированный сценарий\nот приемки/выпуска кодов\nдо их вывода из оборота', href: `${site}/avtomatizaciya-markirovka-chestnyy-znak/`, background: asset('chess-marking@2x.webp'), results: [["х3", "ускорение процесса сканирования и маркировки"], ["0", "штрафов за некорректную передачу кодов регулятору"], ["1 клик", "для автоматического вывода кодов маркировки из оборота"]] }
+      { layout: 'marking', mobileIcon: { kind: 'marking', src: asset('mobile-marking.svg') }, title: 'Честный Знак', text: 'Работа со сканером и понятный автоматизированный сценарий от приемки/выпуска кодов до их вывода из оборота', href: `${site}/avtomatizaciya-markirovka-chestnyy-znak/`, background: asset('chess-marking@2x.webp'), results: [["х3", "ускорение процесса сканирования и маркировки"], ["0", "штрафов за некорректную передачу кодов регулятору"], ["1 клик", "для автоматического вывода кодов маркировки из оборота"]] }
     ]
   },
   architecture: {
@@ -49,10 +83,10 @@ export const config = {
     imageAlt: 'Учетная система 1С и расширение RDV Маркет обмениваются данными с облачной платформой RDV, которая связана по API с Ozon, Wildberries и Яндекс Маркет'
   },
   stats: [
-    { value: '3,5млн', text: 'заказов обрабатывается\nв экосистеме RDV Маркет каждый месяц' },
+    { value: '3,5млн', text: 'заказов обрабатывается в экосистеме RDV Маркет каждый месяц' },
     { value: '1200+', text: 'Личных кабинетов подключено к RDV Маркет' },
-    { value: '90 000+', text: 'FBS-заказов в сутки может обработать система в рамках\n1 клиента' },
-    { value: '99,9%', text: 'Аптайм облачной\nплатформы' }
+    { value: '90 000+', text: 'FBS-заказов в сутки может обработать система в рамках 1 клиента' },
+    { value: '99,9%', text: 'Аптайм облачной платформы' }
   ],
   workspace: {
     title: 'Ваше пространство для', accent: 'удобной работы', titleEnd: 'с маркетплейсами',

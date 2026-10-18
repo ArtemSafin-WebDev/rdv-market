@@ -3,3 +3,7 @@ html{font-size:.625vw;scroll-behavior:smooth}body{margin:0;background:#fff;min-w
 @scope (.rdv-site-shell){:scope{display:block;min-height:0}}
 
 @media (max-width:1099px),(min-width:1300px){html{font-size:10px}}
+
+/* Ссылки меню меняют одновременно цвет и прозрачность. */
+.rdv-site-shell :is(.header__top-menu-link,.header__bottom-menu-link){transition:color .3s ease,opacity .3s ease}
+@media(prefers-reduced-motion:reduce){.rdv-site-shell *,.rdv-site-shell *::before,.rdv-site-shell *::after{transition:none!important}}

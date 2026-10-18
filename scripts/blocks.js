@@ -6,6 +6,34 @@ const image = (name, className = '') => `<img class="${className}" src="${asset(
 const more = (href, extra = '') => `<a class="rdv-more ${extra}" href="${esc(href)}"><span class="rdv-more__label">Подробнее</span>${image('1a369.svg')}</a>`;
 const mobileIcon = (icon, className) => !icon ? '' : `<span class="${className} rdv-mobile-icon${icon.kind ? ` rdv-mobile-icon--${esc(icon.kind)}` : ''}" aria-hidden="true">${(icon.layers || [icon.src]).map(src => `<img src="${esc(src)}" alt="" draggable="false">`).join('')}</span>`;
 
+export function renderBusinessHeading(data) {
+  return data.showTitle !== false && (data.title || data.accent)
+    ? `<div class="rdv-business-heading" data-rdv-block="business-heading"><h2>${lines(data.title)}${data.accent ? ` <span>${lines(data.accent)}</span>` : ''}</h2></div>` : '';
+}
+
+export function renderBusinessCards(data) {
+  const callouts = data.showCallouts && data.cards.some(card => card.callout);
+  return `<div class="rdv-business-cards${callouts ? ' rdv-business-cards--callouts' : ''}" data-rdv-block="business-cards">${data.cards.map(card => {
+    const clickable = card.clickable !== false && Boolean(card.href);
+    const tag = clickable ? 'a' : 'article';
+    const showMore = (card.showMore ?? data.showMore) !== false && clickable;
+    const showArrow = (card.showArrow ?? data.showArrow) !== false && clickable;
+    return `<div class="rdv-business__column">${callouts ? `<div class="rdv-business__callout"${card.callout ? '' : ' aria-hidden="true"'}>${card.callout ? `<p>${esc(card.callout)}</p><span aria-hidden="true">${image('business-arrow.svg')}</span>` : ''}</div>` : ''}
+      <${tag} class="rdv-business__card"${clickable ? ` href="${esc(card.href)}"` : ''}>
+        <div class="rdv-business__copy"><h3>${esc(card.title)}</h3><p>${esc(card.text)}</p>
+          ${showMore || showArrow ? `<div class="rdv-business__actions">${showMore ? `<span class="rdv-business__more">Подробнее${showArrow ? `<span class="rdv-business__more-arrow" aria-hidden="true"><img src="${esc(card.mobileArrow || asset('business-mobile-arrow-automation.svg'))}" alt="" draggable="false"></span>` : ''}</span>` : ''}${showArrow ? `<span class="rdv-business__arrow" aria-hidden="true">${image('business-arrow.svg')}</span>` : ''}</div>` : ''}
+        </div>
+        ${card.image ? `<div class="rdv-business__art" aria-hidden="true"><img class="rdv-business__image" src="${esc(card.image)}" alt="" draggable="false" loading="lazy"></div>` : ''}
+      </${tag}>
+    </div>`;
+  }).join('')}</div>`;
+}
+
+export function renderBusiness(data) {
+  if (!data) return '';
+  return `<section class="rdv-business" data-rdv-block="business" aria-label="Решения для бизнеса"><div class="rdv-business__inner">${renderBusinessHeading(data)}${renderBusinessCards(data)}</div></section>`;
+}
+
 export function renderHero(data) {
   const cards = data.showCards ? data.cards.slice(0, 4) : [];
   return `<section class="rdv-hero" data-rdv-block="hero" aria-labelledby="rdv-hero__title">
@@ -16,7 +44,7 @@ export function renderHero(data) {
       <h1 class="rdv-hero__title" id="rdv-hero__title"><span>${lines(data.accent)}</span><br>${lines(data.title)}</h1>
       <div class="rdv-hero__buttons">${data.buttons.slice(0, 2).map((button, i) => `<a class="rdv-button${i ? ' rdv-button--secondary' : ''}" href="${esc(button.href)}">${esc(button.label)}</a>`).join('')}</div>
       </div>
-      ${cards.length ? `<div class="rdv-hero__cards">${cards.map(card => `<article class="rdv-hero__card${card.mobileIcon ? ' rdv-hero__card--mobile-icon' : ''}"><div class="rdv-hero__copy"><h2>${esc(card.title)}</h2><p>${lines(card.text)}</p></div><div class="rdv-hero__art"><img src="${esc(card.image)}" alt="" draggable="false"></div>${mobileIcon(card.mobileIcon, 'rdv-hero__mobile-icon')}</article>`).join('')}</div>` : ''}
+      ${cards.length ? `<div class="rdv-hero__cards">${cards.map(card => `<article class="rdv-hero__card${card.mobileIcon ? ' rdv-hero__card--mobile-icon' : ''}"><div class="rdv-hero__copy"><h2>${esc(card.title)}</h2><p>${esc(card.text)}</p></div><div class="rdv-hero__art"><img src="${esc(card.image)}" alt="" draggable="false"></div>${mobileIcon(card.mobileIcon, 'rdv-hero__mobile-icon')}</article>`).join('')}</div>` : ''}
     </div>
   </section>`;
 }
@@ -32,21 +60,21 @@ export function renderChess(data) {
   return `<section class="rdv-chess" data-rdv-block="chess" data-hover="${esc(data.hover)}">${data.cards.map(card => `<a class="rdv-chess__card rdv-chess__card--${esc(card.layout)}" href="${esc(card.href)}" data-hover="${esc(card.hover || data.hover)}" aria-label="${esc(card.title.replace(/\n/g, ' '))} — подробнее">
     ${card.background ? `<img class="rdv-chess__art" src="${esc(card.background)}" alt="" aria-hidden="true" draggable="false">` : ''}
     <div class="rdv-chess__default">
-      <h3>${lines(card.title)}</h3><span class="rdv-chess__arrow">${image('950f6.svg')}</span>
-      <p class="rdv-chess__description">${lines(card.text)}</p>
+      <h3>${esc(card.title)}</h3><span class="rdv-chess__arrow">${image('950f6.svg')}</span>
+      <p class="rdv-chess__description">${esc(card.text)}</p>
       ${card.icon ? `<img class="rdv-chess__icon" src="${esc(card.icon)}" alt="">` : ''}
       <span class="rdv-chess__mobile-more">Подробнее <span class="rdv-chess__mobile-more-arrow" aria-hidden="true">${image('mobile-more-arrow.svg')}</span></span>
       ${mobileIcon(card.mobileIcon, 'rdv-chess__mobile-icon')}
     </div>
     ${(card.hover || data.hover) === 'results' ? `<div class="rdv-chess__result">
-      <div class="rdv-chess__result-header"><div><span class="rdv-chess__eyebrow">В результате</span><h3 aria-hidden="true">${lines(card.title)}</h3></div><span class="rdv-chess__more"><span class="rdv-chess__more-label">Подробнее</span>${image('e387d.svg')}</span></div>
-      <dl class="rdv-chess__metrics" data-count="${Math.min(4, (card.results || []).length)}">${(card.results || []).slice(0, 4).map(([value, text]) => `<div><dt>${esc(value)}</dt><dd>${lines(text)}</dd></div>`).join('')}</dl>
+      <div class="rdv-chess__result-header"><div><span class="rdv-chess__eyebrow">В результате</span><h3 aria-hidden="true">${esc(card.title)}</h3></div><span class="rdv-chess__more"><span class="rdv-chess__more-label">Подробнее</span>${image('e387d.svg')}</span></div>
+      <dl class="rdv-chess__metrics" data-count="${Math.min(4, (card.results || []).length)}">${(card.results || []).slice(0, 4).map(([value, text]) => `<div><dt>${esc(value)}</dt><dd>${esc(text)}</dd></div>`).join('')}</dl>
     </div>` : ''}
   </a>`).join('')}</section>`;
 }
 
 export function renderStats(data) {
-  return `<section class="rdv-stats" data-rdv-block="stats" aria-label="RDV Маркет в цифрах">${data.slice(0, 4).map(stat => `<article class="rdv-stats__item"><h2>${esc(stat.value)}</h2><p>${lines(stat.text)}</p></article>`).join('')}</section>`;
+  return `<section class="rdv-stats" data-rdv-block="stats" aria-label="RDV Маркет в цифрах">${data.slice(0, 4).map(stat => `<article class="rdv-stats__item"><h2>${esc(stat.value)}</h2><p>${esc(stat.text)}</p></article>`).join('')}</section>`;
 }
 
 export function renderArchitecture(data, stats) {
@@ -65,7 +93,7 @@ export function renderHeading(data) {
 }
 
 export function renderPageMarkup(data) {
-  return renderHero(data.hero) + renderVideo(data.video) + renderHeading(data)
+  return renderHero(data.hero) + renderVideo(data.video) + renderBusiness(data.business) + renderHeading(data)
     + renderChess(data.chess) + renderArchitecture(data.architecture, data.stats) + renderWorkspace(data.workspace);
 }
 
