@@ -1,4 +1,5 @@
 import { tabIcons } from './tab-icons.js';
+import { businessIcons } from './business-icons.js';
 const asset = name => typeof window === 'undefined' ? `./assets/figma/${name}` : new URL(`../assets/figma/${name}`, import.meta.url).href;
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const lines = value => esc(value).replace(/\n/g, '<br> ');
@@ -18,10 +19,10 @@ export function renderBusinessCards(data) {
     const tag = clickable ? 'a' : 'article';
     const showMore = (card.showMore ?? data.showMore) !== false && clickable;
     const showArrow = (card.showArrow ?? data.showArrow) !== false && clickable;
-    return `<div class="rdv-business__column">${callouts ? `<div class="rdv-business__callout"${card.callout ? '' : ' aria-hidden="true"'}>${card.callout ? `<p>${esc(card.callout)}</p><span aria-hidden="true">${image('business-arrow.svg')}</span>` : ''}</div>` : ''}
+    return `<div class="rdv-business__column">${callouts ? `<div class="rdv-business__callout"${card.callout ? '' : ' aria-hidden="true"'}>${card.callout ? `<div class="rdv-business__callout-label"><p>${esc(card.callout)}</p></div><span class="rdv-business__callout-arrow" aria-hidden="true"><span>${businessIcons.callout}</span></span>` : ''}</div>` : ''}
       <${tag} class="rdv-business__card"${clickable ? ` href="${esc(card.href)}"` : ''}>
         <div class="rdv-business__copy"><h3>${esc(card.title)}</h3><p>${esc(card.text)}</p>
-          ${showMore || showArrow ? `<div class="rdv-business__actions">${showMore ? `<span class="rdv-business__more">Подробнее${showArrow ? `<span class="rdv-business__more-arrow" aria-hidden="true"><img src="${esc(card.mobileArrow || asset('business-mobile-arrow-automation.svg'))}" alt="" draggable="false"></span>` : ''}</span>` : ''}${showArrow ? `<span class="rdv-business__arrow" aria-hidden="true">${image('business-arrow.svg')}</span>` : ''}</div>` : ''}
+          ${showMore || showArrow ? `<div class="rdv-business__actions">${showMore ? `<span class="rdv-business__more">Подробнее${showArrow ? `<span class="rdv-business__more-arrow" aria-hidden="true">${businessIcons.more}</span>` : ''}</span>` : ''}${showArrow ? `<span class="rdv-business__arrow" aria-hidden="true">${businessIcons.arrow}</span>` : ''}</div>` : ''}
         </div>
         ${card.image ? `<div class="rdv-business__art" aria-hidden="true"><img class="rdv-business__image" src="${esc(card.image)}" alt="" draggable="false" loading="lazy"></div>` : ''}
       </${tag}>
@@ -128,6 +129,23 @@ function bindBlock(root) {
   }
   const controller = new AbortController();
   const options = { signal: controller.signal };
+  let pressedCard;
+  const releaseCard = () => {
+    pressedCard?.removeAttribute('data-pressed');
+    pressedCard = null;
+  };
+  if (root.dataset.rdvBlock === 'business-cards') {
+    // На сенсорных экранах показываем нажатие сразу, до распознавания тапа.
+    root.addEventListener('pointerdown', event => {
+      if (!event.isPrimary || event.pointerType === 'mouse') return;
+      releaseCard();
+      pressedCard = event.target.closest('.rdv-business__card[href]');
+      pressedCard?.setAttribute('data-pressed', '');
+    }, options);
+    root.ownerDocument.addEventListener('pointerup', releaseCard, options);
+    root.ownerDocument.addEventListener('pointercancel', releaseCard, options);
+    window.addEventListener('blur', releaseCard, options);
+  }
   const tabs = [...root.querySelectorAll('.rdv-workspace__tab')];
   const panels = [...root.querySelectorAll('.rdv-workspace__panel')];
   tabs.forEach((tab, i) => {
@@ -235,5 +253,5 @@ function bindBlock(root) {
     dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
     dialog.showModal();
   }, options);
-  return () => { controller.abort(); if (dialog?.open) dialog.close(); };
+  return () => { controller.abort(); releaseCard(); if (dialog?.open) dialog.close(); };
 }

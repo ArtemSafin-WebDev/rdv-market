@@ -6,33 +6,33 @@ export const config = {
     title: 'Решаем задачи',
     accent: 'разных уровней бизнеса',
     showTitle: true,
-    showCallouts: false,
+    showCallouts: true,
     showMore: true,
     showArrow: true,
     cards: [
       {
+        callout: 'У меня типовая 1С',
         title: 'Интеграция вашей 1С с маркетплейсами',
         text: 'Готовое решение RDV Маркет для типовых версий 1С:УНФ, 1С:УТ, 1С:КА или 1С:ERP. Быстрая установка и бесплатный тест в течение 21 дня',
         href: `${site}/`,
         clickable: true,
-        image: asset('business-integration@2x.png'),
-        mobileArrow: asset('business-mobile-arrow-integration.svg')
+        image: asset('business-integration@2x.png')
       },
       {
+        callout: 'Enterprise',
         title: 'Автоматизация крупных производителей и дистрибьюторов',
         text: 'Встраиваем работу с маркетплейсами в сложные ИТ-инфраструктуры с сохранением привычных процессов и стандартов учёта',
         href: `${site}/cases/enterprise/`,
         clickable: true,
-        image: asset('business-automation@2x.png'),
-        mobileArrow: asset('business-mobile-arrow-automation.svg')
+        image: asset('business-automation@2x.png')
       },
       {
+        callout: 'У меня нет 1С',
         title: 'Внедрение 1С для работы с маркетплейсами',
         text: 'Готовая учётная система для малого бизнеса. Облачная 1С, настройка системы, интеграция с площадками и комплексное обучение сотрудников',
         href: `${site}/cases/vnedrenie-1c-dlya-marketpleysov/`,
         clickable: true,
-        image: asset('business-implementation@2x.png'),
-        mobileArrow: asset('business-mobile-arrow-implementation.svg')
+        image: asset('business-implementation@2x.png')
       }
     ]
   },

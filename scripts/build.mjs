@@ -3,7 +3,7 @@ import { config } from './config.js';
 import { renderPageMarkup, renderHeading, renderHero, renderVideo, renderChess, renderArchitecture, renderStats, renderWorkspace, renderBusiness, renderBusinessHeading, renderBusinessCards } from './blocks.js';
 await rm('dist', { recursive: true, force: true });
 await mkdir('dist', { recursive: true });
-for (const path of ['index.html', 'styles', 'assets', 'scripts/app.js', 'scripts/init.js', 'scripts/config.js', 'scripts/blocks.js', 'scripts/tab-icons.js', 'scripts/site-shell.js']) {
+for (const path of ['index.html', 'styles', 'assets', 'scripts/app.js', 'scripts/init.js', 'scripts/config.js', 'scripts/blocks.js', 'scripts/tab-icons.js', 'scripts/business-icons.js', 'scripts/site-shell.js']) {
   await cp(path, `dist/${path}`, { recursive: true });
 }
 const html = await readFile('index.html', 'utf8');
